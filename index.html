@@ -669,9 +669,10 @@
             </button>
         </div>
 
-        <!-- Conteúdo do Story (Imagem Grande) -->
+        <!-- Conteúdo do Story (Imagem Grande ou Vídeo) -->
         <div class="flex-1 w-full h-full relative flex items-center justify-center">
             <img id="story-content-img" src="" alt="Story" class="w-full h-full object-cover">
+            <video id="story-content-vid" playsinline autoplay loop muted class="w-full h-full object-cover hidden"></video>
             
             <!-- Áreas de Toque Invisíveis para Navegação -->
             <div onclick="prevStorySlide()" class="absolute left-0 top-0 bottom-0 w-2/5 z-40 cursor-w-resize"></div>
@@ -792,12 +793,12 @@
                 "fases_converted/fase_28.webp",
                 "fases_converted/fase_29.webp",
                 "fases_converted/fase_30.webp",
-                "fases_converted/fase_31.gif",
-                "fases_converted/fase_32.gif",
-                "fases_converted/fase_33.gif",
-                "fases_converted/fase_34.gif",
-                "fases_converted/fase_35.gif",
-                "fases_converted/fase_36.gif",
+                "fases_converted/fase_31.mp4",
+                "fases_converted/fase_32.mp4",
+                "fases_converted/fase_33.mp4",
+                "fases_converted/fase_34.mp4",
+                "fases_converted/fase_35.mp4",
+                "fases_converted/fase_36.mp4",
                 "fases_converted/fase_37.webp",
                 "fases_converted/fase_38.webp"
             ],
@@ -1170,7 +1171,24 @@
                 return;
             }
 
-            document.getElementById('story-content-img').src = images[slideIdx];
+            const mediaUrl = images[slideIdx];
+            const isVideo = mediaUrl.endsWith('.mp4');
+
+            const imgElement = document.getElementById('story-content-img');
+            const vidElement = document.getElementById('story-content-vid');
+
+            if (isVideo) {
+                imgElement.classList.add('hidden');
+                vidElement.classList.remove('hidden');
+                vidElement.src = mediaUrl;
+                vidElement.currentTime = 0;
+                vidElement.play().catch(e => console.log("Erro ao reproduzir vídeo no story:", e));
+            } else {
+                vidElement.classList.add('hidden');
+                vidElement.pause();
+                imgElement.classList.remove('hidden');
+                imgElement.src = mediaUrl;
+            }
 
             const barContainer = document.getElementById('story-progress-bar-container');
             barContainer.innerHTML = '';
@@ -1226,6 +1244,11 @@
 
         function closeStoryVisualizer() {
             clearTimeout(storySlideTimeout);
+            const vidElement = document.getElementById('story-content-vid');
+            if (vidElement) {
+                vidElement.pause();
+                vidElement.src = "";
+            }
             document.getElementById('story-visualizer').classList.add('hidden');
         }
 
