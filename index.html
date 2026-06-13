@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Duda, eu tenho um presente especial para você! ❤️</title>
+    <!-- Tailwind CSS para estilização moderna e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons para ícones vetorizados de alta qualidade -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cormorant Garamond (títulos românticos) e Plus Jakarta Sans (leitura limpa e moderna) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        // Customização de cores e fontes para o Tailwind CSS
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        poppins: ['"Cormorant Garamond"', 'serif'], // Mapeado para Serif para evitar refatoração massiva de classes
+                        outfit: ['"Cormorant Garamond"', 'serif'],   // Mapeado para Serif
+                    },
+                    colors: {
+                        romantic: {
+                            cream: '#FAF8F6',
+                            card: 'rgba(255, 255, 255, 0.82)',
+                            blush: '#F3E8E6',
+                            rose: '#D4A39D',
+                            gold: '#D1B48C',
+                            textDark: '#3C3836',
+                            textMuted: '#7C7571',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-8px) rotate(2deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f3ebe6;
+            color: #3c3836;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Ocultar barras de rolagem nativas para visual de app nativo */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Estilo para animação dos corações e brilhos flutuantes em SVG */
+        .floating-particle {
+            position: absolute;
+            bottom: -50px;
+            pointer-events: none;
+            animation: floatParticle 8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.1) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* Transições suaves de fade e slide */
+        .fade-enter {
+            opacity: 0;
+            transform: scale(0.98);
+        }
+        .fade-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Glassmorphism premium e leve */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(212, 163, 157, 0.15);
+        }
+
+        /* Gradiente Dinâmico Mesh/Aurora de Fundo */
+        .mesh-bg {
+            background-color: #faf8f6;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(243, 232, 230, 0.8) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(212, 163, 157, 0.25) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(209, 180, 140, 0.2) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(243, 232, 230, 0.6) 0px, transparent 50%);
+            background-size: 200% 200%;
+            animation: meshMovement 20s ease-in-out infinite;
+        }
+
+        @keyframes meshMovement {
+            0% { background-position: 0% 0%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* Animação do disco vinil */
+        @keyframes rotateVinyl {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .rotate-vinyl {
+            animation: rotateVinyl 12s linear infinite;
+        }
+        .rotate-vinyl-paused {
+            animation-play-state: paused;
+        }
+
+        /* Efeito de textura de papel/linho para a carta */
+        .paper-texture {
+            background-color: #fbfaf8;
+            background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* Animação suave de entrada dos cartões de conquista */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .achievement-card-anim {
+            animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Estilo 3D de Virada de Carta */
+        .flip-card {
+            background-color: transparent;
+            perspective: 1000px;
+            height: 90px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: left;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+        }
+
+        .flip-card-front {
+            z-index: 2;
+            transform: rotateY(0deg);
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="h-full overflow-hidden flex items-center justify-center select-none bg-[#f3ebe6]" onload="initializeOnLoad()">
+    <!-- ==================== PRELOADER ROMÂNTICO ==================== -->
+    <div id="preloader" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#faf8f6] transition-opacity duration-700 ease-in-out">
+        <div class="absolute inset-0 mesh-bg opacity-40"></div>
+        <div class="relative z-10 flex flex-col items-center text-center px-6">
+            <div class="relative w-24 h-24 mb-6 flex items-center justify-center">
+                <div class="absolute inset-0 bg-romantic-rose/25 rounded-full scale-75 animate-ping opacity-75" style="animation-duration: 2s;"></div>
+                <div class="absolute inset-0 bg-romantic-rose/10 rounded-full animate-pulse" style="animation-duration: 1.5s;"></div>
+                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-[0_8px_30px_rgba(212,163,157,0.25)] border border-romantic-rose/10 relative z-10">
+                    <i data-lucide="heart" class="w-8 h-8 text-romantic-rose fill-romantic-rose/20 animate-pulse" style="animation-duration: 1.2s;"></i>
+                </div>
+            </div>
+            <h2 class="font-serif italic text-romantic-textDark text-lg font-bold mb-2 tracking-wide">Preparando nossa história...</h2>
+            <p class="text-[10px] text-romantic-textMuted font-bold uppercase tracking-widest mb-6">Carregando com muito amor</p>
+            <div class="w-48 h-1 bg-stone-200/60 rounded-full overflow-hidden relative border border-stone-200/10 shadow-inner">
+                <div id="preloader-bar" class="h-full bg-gradient-to-r from-romantic-rose to-romantic-gold w-0 transition-all duration-[2000ms] ease-out"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Canvas de Confetes para celebrações -->
+    <canvas id="confetti-canvas" class="pointer-events-none fixed inset-0 z-[100] w-full h-full"></canvas>
+
+    <!-- ==================== ELEMENTO DE ÁUDIO NATIVO (HTML5) ==================== -->
+    <audio id="love-audio" src="musica.mp3" preload="auto" loop></audio>
+
+    <!-- Container Principal do App (Simulador Mobile) -->
+    <div class="relative w-full max-w-md h-full bg-[#faf8f6] overflow-hidden flex flex-col shadow-[0_25px_60px_rgba(115,100,95,0.18)] border border-stone-200/60">
+        
+        <!-- ==================== TELA 1: ABERTURA / CAPA ==================== -->
+        <div id="screen-intro" class="absolute inset-0 z-40 flex flex-col justify-between p-6 mesh-bg transition-all duration-700 ease-in-out">
+            <!-- Camada de Partículas Flutuantes -->
+            <div id="heart-container" class="absolute inset-0 pointer-events-none overflow-hidden z-0"></div>
+            
+            <!-- Badge Superior -->
+            <div class="flex justify-between items-center z-10 pt-2">
+                <div class="flex items-center gap-1.5 text-romantic-textMuted/80 text-[10px] uppercase tracking-widest font-extrabold">
+                    <span class="w-1.5 h-1.5 bg-romantic-rose rounded-full animate-ping"></span>
+                    Feito com Amor
+                </div>
+                <div class="bg-romantic-rose/10 text-romantic-rose font-bold text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-full flex items-center gap-1 border border-romantic-rose/20 shadow-sm">
+                    <i data-lucide="sparkles" class="w-3 h-3 text-romantic-rose fill-romantic-rose/20"></i> RETROSPECTIVA
+                </div>
+            </div>
+
+            <!-- Centro do Convite Romântico -->
+            <div class="flex flex-col items-center text-center my-auto z-10">
+                <!-- Foto de Capa Estilo Polaroid de Luxo -->
+                <div class="relative w-56 h-56 mb-10 group cursor-pointer">
+                    <!-- Foto Traseira decorativa -->
+                    <div class="absolute inset-0 bg-white rounded-3xl transform rotate-6 scale-95 opacity-55 border border-stone-200/50 shadow-md transition-transform duration-500 group-hover:rotate-12"></div>
+                    <!-- Foto Principal -->
+                    <div class="absolute inset-0 bg-white rounded-3xl p-3.5 border border-stone-200/40 shadow-xl transform -rotate-3 transition-transform duration-500 group-hover:rotate-0 flex flex-col">
+                        <div class="w-full flex-1 rounded-2xl overflow-hidden relative">
+                            <!-- FOTO DE CAPA CONFIGURÁVEL -->
+                            <img id="img-cover" src="fases_converted/fase_22.webp" alt="Nós Dois" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-stone-900/40 via-transparent to-transparent"></div>
+                        </div>
+                        <div class="pt-3 pb-0.5 flex justify-between items-center px-1">
+                            <span class="font-serif font-bold text-sm text-romantic-textDark">Duda & Andrey</span>
+                            <span class="text-[10px] text-romantic-textMuted font-mono">11.07.2020</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Títulos Românticos -->
+                <h1 class="text-3xl font-light font-serif text-romantic-textDark mb-3 tracking-tight leading-tight">
+                    Para minha noiva,<br>
+                    <span class="font-serif font-bold italic text-romantic-rose">Duda ❤️</span>
+                </h1>
+                
+                <p class="text-romantic-textMuted text-xs max-w-[280px] leading-relaxed mb-8 font-medium">
+                    Preparei uma retrospectiva especial dos nossos melhores momentos. Toque abaixo para abrir!
+                </p>
+                
+                <!-- Botão Ver Presente Interativo -->
+                <button onclick="startExperience()" class="group relative w-full max-w-[260px] py-4 bg-gradient-to-r from-romantic-rose to-[#cfa39c] hover:from-[#cfa39c] hover:to-romantic-rose text-white font-bold text-xs uppercase tracking-widest rounded-full shadow-[0_10px_25px_rgba(212,163,157,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+                    <span class="relative z-10 flex items-center justify-center gap-2">
+                        Abrir Presente <i data-lucide="play" class="w-3.5 h-3.5 fill-white text-white"></i>
+                    </span>
+                    <div class="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                </button>
+            </div>
+
+            <!-- Rodapé decorativo estilo Spotify -->
+            <div class="flex justify-around items-center border-t border-stone-200/50 pt-4 text-[9px] font-bold uppercase tracking-wider text-romantic-textMuted z-10">
+                <div class="flex flex-col items-center gap-1 text-romantic-rose cursor-pointer" onclick="showToast('Você já está na Abertura! ❤️', 'sparkles')">
+                    <i data-lucide="home" class="w-4 h-4 text-romantic-rose"></i>
+                    <span class="text-[8px]">Abertura</span>
+                </div>
+                <div class="flex flex-col items-center gap-1 cursor-pointer hover:text-romantic-textDark transition-all" onclick="startWithModal('modal-declaration')">
+                    <i data-lucide="heart-handshake" class="w-4 h-4"></i>
+                    <span class="text-[8px]">História</span>
+                </div>
+                <div class="flex flex-col items-center gap-1 cursor-pointer hover:text-romantic-textDark transition-all" onclick="startWithModal('modal-achievements')">
+                    <i data-lucide="trophy" class="w-4 h-4"></i>
+                    <span class="text-[8px]">Troféus</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TELA 2: RETROSPECTIVA PRINCIPAL ==================== -->
+        <div id="screen-main" class="hidden absolute inset-0 z-30 flex flex-col opacity-0 transition-opacity duration-500 bg-[#faf8f6]">
+            <!-- Toast Container para avisos elegantes -->
+            <div id="toast-container" class="absolute top-20 left-6 right-6 z-50 pointer-events-none flex flex-col gap-2"></div>
+            
+            <!-- Barra Superior Fixa (Header) -->
+            <div class="sticky top-0 bg-[#faf8f6]/80 backdrop-blur-md z-20 flex items-center justify-between px-6 py-4 border-b border-stone-200/40">
+                <div class="flex items-center gap-2">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-romantic-rose opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-romantic-rose"></span>
+                    </span>
+                    <span class="text-[9px] font-bold text-romantic-textMuted tracking-widest uppercase">Nossa Trilha do Amor</span>
+                </div>
+                <button onclick="exitExperience()" class="text-romantic-textMuted hover:text-romantic-textDark transition-colors p-1.5 rounded-full hover:bg-stone-100">
+                    <i data-lucide="log-out" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <!-- Área de Conteúdo Rolável (Página Principal) -->
+            <div class="flex-1 overflow-y-auto no-scrollbar px-6 pb-28 space-y-6">
+                
+                <!-- 1. Player de Música Estilo Toca-Discos de Vinil -->
+                <div class="bg-gradient-to-b from-[#fdfbf9] to-[#f6f0ec] rounded-3xl p-5 border border-stone-200/50 shadow-[0_10px_35px_rgba(212,163,157,0.06)] mt-4 relative overflow-hidden">
+                    <div class="flex items-center gap-5 mb-4 relative z-10">
+                        <!-- Toca-Discos de Vinil Redondo -->
+                        <div class="relative w-20 h-20 flex-shrink-0 flex items-center justify-center">
+                            <!-- Corpo do vinil -->
+                            <div id="vinyl-disk" class="w-20 h-20 rounded-full bg-neutral-900 border-4 border-stone-800 flex items-center justify-center shadow-lg rotate-vinyl rotate-vinyl-paused transition-all duration-500">
+                                <!-- Capa interna (capa da música) -->
+                                <div class="w-8 h-8 rounded-full border border-stone-900 overflow-hidden relative">
+                                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=200&auto=format&fit=cover" alt="Música" class="w-full h-full object-cover">
+                                </div>
+                                <!-- Centro/furo do disco -->
+                                <div class="absolute w-2 h-2 rounded-full bg-[#fdfbf9] shadow-inner"></div>
+                            </div>
+                            <!-- Agulha decorativa que gira levemente no play -->
+                            <div id="vinyl-needle" class="absolute top-0 right-0 w-3 h-8 origin-top-left -rotate-12 transition-transform duration-500 ease-out z-10 pointer-events-none" style="transform-origin: 0% 0%;">
+                                <svg viewBox="0 0 24 50" fill="none" class="w-full h-full text-stone-400 drop-shadow-sm">
+                                    <path d="M2 2 L14 10 L8 38 L10 44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="2" cy="2" r="2" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <!-- Dados da Música -->
+                        <div class="overflow-hidden flex-1">
+                            <h2 class="text-base font-bold truncate text-romantic-textDark leading-snug font-serif">Poesia Acústica #7 - Céu Azul</h2>
+                            <p class="text-xs text-romantic-rose font-bold truncate mt-0.5">Pineapple StormTV</p>
+                            <span class="inline-block bg-romantic-blush/80 text-romantic-rose text-[9px] font-bold px-2.5 py-0.5 rounded-full mt-1.5 uppercase tracking-wide border border-romantic-rose/10">Nossa Trilha</span>
+                        </div>
+                    </div>
+
+                    <!-- Controle de Progresso (Barra de Tempo) -->
+                    <div class="space-y-1.5 relative z-10">
+                        <div id="audio-timeline-bg" class="relative w-full h-1 bg-stone-200/80 rounded-full cursor-pointer group" onclick="seekTrack(event)">
+                            <div id="audio-timeline-fill" class="absolute top-0 left-0 h-full bg-romantic-rose rounded-full group-hover:bg-romantic-rose/90 transition-all duration-100" style="width: 0%"></div>
+                            <div id="audio-timeline-handle" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-romantic-rose rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-100" style="left: 0%"></div>
+                        </div>
+                        <div class="flex justify-between text-[9px] text-romantic-textMuted font-mono font-medium">
+                            <span id="audio-time-current">0:00</span>
+                            <span id="audio-time-total">--:--</span>
+                        </div>
+                    </div>
+
+                    <!-- Botões de Controle de Mídia -->
+                    <div class="flex justify-between items-center px-6 mt-4 relative z-10">
+                        <button class="text-romantic-textMuted/40 hover:text-romantic-textMuted transition-colors cursor-not-allowed">
+                            <i data-lucide="shuffle" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="restartTrack()" class="text-romantic-textMuted hover:text-romantic-textDark transition-colors">
+                            <i data-lucide="skip-back" class="w-4 h-4"></i>
+                        </button>
+                        <!-- Botão de Play/Pause Principal -->
+                        <button onclick="toggleTrackPlayback()" class="w-12 h-12 rounded-full bg-romantic-rose text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-md shadow-romantic-rose/15">
+                            <i id="btn-play-icon" data-lucide="play" class="w-5 h-5 fill-white translate-x-0.5 text-white"></i>
+                        </button>
+                        <button class="text-romantic-textMuted/40 hover:text-romantic-textMuted transition-colors cursor-not-allowed">
+                            <i data-lucide="skip-forward" class="w-4 h-4"></i>
+                        </button>
+                        <button class="text-romantic-textMuted/40 hover:text-romantic-textMuted transition-colors cursor-not-allowed">
+                            <i data-lucide="repeat" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2. Contador de Relacionamento (Duração do Amor) -->
+                <div class="bg-gradient-to-b from-[#fdfbf9] to-[#f6f0ec] rounded-3xl p-6 border border-stone-200/50 text-center shadow-[0_10px_35px_rgba(212,163,157,0.05)]">
+                    <span class="text-[9px] text-romantic-rose uppercase tracking-widest font-extrabold">Nossos Segundos Felizes</span>
+                    <h3 class="text-2xl font-bold font-serif text-romantic-textDark mt-1">Tempo do Nosso Amor</h3>
+                    <p class="text-[11px] text-romantic-textMuted mt-0.5">Andrey & Duda juntos desde 11/07/2020</p>
+                    
+                    <!-- Grid do Contador -->
+                    <div class="grid grid-cols-3 gap-3.5 mt-5">
+                        <div class="bg-white/90 rounded-2xl p-3 border border-stone-200/30 flex flex-col justify-center shadow-sm">
+                            <span id="counter-years" class="block text-2xl font-black text-romantic-rose font-serif">0</span>
+                            <span class="text-[8px] text-romantic-textMuted uppercase font-bold tracking-wider mt-0.5">Anos</span>
+                        </div>
+                        <div class="bg-white/90 rounded-2xl p-3 border border-stone-200/30 flex flex-col justify-center shadow-sm">
+                            <span id="counter-months" class="block text-2xl font-black text-romantic-rose font-serif">0</span>
+                            <span class="text-[8px] text-romantic-textMuted uppercase font-bold tracking-wider mt-0.5">Meses</span>
+                        </div>
+                        <div class="bg-white/90 rounded-2xl p-3 border border-stone-200/30 flex flex-col justify-center shadow-sm">
+                            <span id="counter-days" class="block text-2xl font-black text-romantic-rose font-serif">0</span>
+                            <span class="text-[8px] text-romantic-textMuted uppercase font-bold tracking-wider mt-0.5">Dias</span>
+                        </div>
+                        <div class="bg-white/90 rounded-2xl p-2.5 border border-stone-200/30 flex flex-col justify-center shadow-sm">
+                            <span id="counter-hours" class="block text-lg font-bold text-romantic-textDark font-sans">00</span>
+                            <span class="text-[8px] text-romantic-textMuted uppercase font-bold tracking-wider mt-0.5">Horas</span>
+                        </div>
+                        <div class="bg-white/90 rounded-2xl p-2.5 border border-stone-200/30 flex flex-col justify-center shadow-sm">
+                            <span id="counter-minutes" class="block text-lg font-bold text-romantic-textDark font-sans">00</span>
+                            <span class="text-[8px] text-romantic-textMuted uppercase font-bold tracking-wider mt-0.5">Minutos</span>
+                        </div>
+                        <div class="bg-white/90 rounded-2xl p-2.5 border border-stone-200/30 flex flex-col justify-center shadow-sm">
+                            <span id="counter-seconds" class="block text-lg font-bold text-romantic-rose font-sans animate-pulse">00</span>
+                            <span class="text-[8px] text-romantic-textMuted uppercase font-bold tracking-wider mt-0.5">Segundos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Álbuns de Fotos em Estilo Stories (Interativo) -->
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-xs font-bold text-romantic-textDark uppercase tracking-wider font-serif">Nossas Memórias</h4>
+                        <span class="text-[9px] text-romantic-textMuted">Toque para abrir</span>
+                    </div>
+                    
+                    <div class="w-full">
+                        <!-- Álbum Único: Fases -->
+                        <div onclick="openStoryAlbum(0)" class="relative h-56 rounded-3xl overflow-hidden cursor-pointer group shadow-md border border-stone-200/40 hover:scale-[1.01] active:scale-[0.99] transition-all duration-300">
+                            <img src="fases_converted/fase_22.webp" alt="Nossa História" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-900/20 to-transparent flex flex-col justify-end p-6">
+                                <span class="text-[10px] text-romantic-rose font-extrabold tracking-widest uppercase mb-1">Álbum de Fotos</span>
+                                <h3 class="text-xl font-bold text-white leading-snug font-serif">Nossa Linha do Tempo</h3>
+                                <p class="text-white/75 text-xs mt-1 max-w-[280px]">Toque para reviver cada fase da nossa jornada de amor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Trophy Room / Conquistas do Casal -->
+                <div id="btn-achievements" onclick="tryOpenAchievements()" class="glass-card rounded-3xl p-5 flex items-center justify-between cursor-pointer hover:bg-white/95 hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 shadow-sm border border-stone-200/40">
+                    <div class="flex items-center gap-4">
+                        <div id="achievements-icon-container" class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-md shadow-amber-500/10 transition-all">
+                            <i id="achievements-icon" data-lucide="trophy" class="w-5.5 h-5.5 text-white"></i>
+                        </div>
+                        <div>
+                            <h4 id="achievements-title-main" class="font-bold text-sm text-romantic-textDark font-serif transition-colors">Conquistas do Casal</h4>
+                            <p id="achievements-desc-main" class="text-[11px] text-romantic-textMuted mt-0.5 transition-all">Colecione as medalhas da nossa história.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <span id="badges-unlocked-ratio" class="text-xs font-bold text-romantic-rose font-mono">0/0</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-romantic-textMuted"></i>
+                    </div>
+                </div>
+
+                <!-- 5. Quiz do Casal (Interativo e Gamificado) -->
+                <div onclick="openModalElement('modal-quiz')" class="bg-gradient-to-r from-[#fdfbf9] to-[#fbf8f5] hover:from-[#fbf8f5] hover:to-[#fdfbf9] rounded-3xl p-5 border border-rose-200/25 flex items-center justify-between cursor-pointer hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#eebda0] to-romantic-rose flex items-center justify-center shadow-md shadow-romantic-rose/10">
+                            <i data-lucide="sparkles" class="w-5.5 h-5.5 text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-romantic-textDark font-serif">Quiz do Nosso Amor</h4>
+                            <p class="text-[11px] text-romantic-textMuted mt-0.5">Prove que você me conhece!</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-[9px] font-bold bg-romantic-rose/10 text-romantic-rose border border-romantic-rose/15 px-3 py-1 rounded-full uppercase tracking-wider">Jogar</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-romantic-rose/80"></i>
+                    </div>
+                </div>
+
+                <!-- 6. Carta de Amor / Declaração -->
+                <div onclick="openModalElement('modal-declaration')" class="bg-gradient-to-r from-[#fdfbf9] to-[#fbf8f5] hover:from-[#fbf8f5] hover:to-[#fdfbf9] rounded-3xl p-5 border border-rose-200/25 flex items-center justify-between cursor-pointer hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#c7928b] to-romantic-rose flex items-center justify-center shadow-md shadow-romantic-rose/10">
+                            <i data-lucide="heart" class="w-5.5 h-5.5 text-white fill-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-romantic-textDark font-serif">Nossa Declaração</h4>
+                            <p class="text-[11px] text-romantic-textMuted mt-0.5">Uma carta de amor para você ❤️</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-[9px] font-bold bg-romantic-rose/10 text-romantic-rose border border-romantic-rose/15 px-3 py-1 rounded-full uppercase tracking-wider">Ler</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-romantic-rose/80"></i>
+                    </div>
+                </div>
+
+                <!-- Selo Final fofo -->
+                <div class="pt-6 pb-2 text-center text-romantic-textMuted/45 text-[9px] tracking-widest font-extrabold uppercase font-serif">
+                    Feito com muito ❤️ por Andrey
+                </div>
+
+            </div>
+
+            <!-- Rodapé Fixo -->
+            <div class="absolute bottom-0 left-0 right-0 bg-[#faf8f6]/90 backdrop-blur-md border-t border-stone-200/40 py-4 flex justify-around items-center z-20 text-[9px] font-bold uppercase tracking-wider text-romantic-textMuted">
+                <div onclick="exitExperience()" class="flex flex-col items-center gap-1 cursor-pointer hover:text-romantic-rose transition-colors">
+                    <i data-lucide="home" class="w-4 h-4"></i>
+                    <span class="text-[8px]">Capa</span>
+                </div>
+                <div onclick="openModalElement('modal-declaration')" class="flex flex-col items-center gap-1 cursor-pointer hover:text-romantic-rose transition-colors">
+                    <i data-lucide="heart-handshake" class="w-4 h-4"></i>
+                    <span class="text-[8px]">História</span>
+                </div>
+                <div id="footer-btn-achievements" onclick="tryOpenAchievements()" class="flex flex-col items-center gap-1 cursor-pointer hover:text-romantic-rose transition-all">
+                    <i id="footer-achievements-icon" data-lucide="trophy" class="w-4 h-4"></i>
+                    <span class="text-[8px]">Troféus</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 2: MEDALHAS / CONQUISTAS ==================== -->
+    <div id="modal-achievements" class="hidden fixed inset-0 z-50 bg-[#faf8f6] overflow-hidden flex flex-col p-6 max-w-md mx-auto h-full">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-4 border-b border-stone-200/50 pb-4">
+            <div>
+                <h3 class="text-xl font-bold font-serif text-romantic-textDark flex items-center gap-2">
+                    <i data-lucide="trophy" class="w-5 h-5 text-romantic-gold fill-romantic-gold/20"></i> Conquistas de Casal
+                </h3>
+                <p class="text-[11px] text-romantic-textMuted mt-0.5" id="achievements-subtitle">Carregando progresso...</p>
+            </div>
+            <button onclick="closeModalElement('modal-achievements')" class="p-2 rounded-full hover:bg-stone-100 text-romantic-textMuted hover:text-romantic-textDark transition-all">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Barra de Progresso Superior Premium -->
+        <div class="mb-5 bg-[#fbf9f7] rounded-2xl p-4 border border-stone-200/40 shadow-sm">
+            <div class="flex justify-between items-center mb-2 text-xs font-semibold text-romantic-textMuted">
+                <span>Progresso de Conquistas</span>
+                <span id="achievements-percent" class="text-romantic-rose font-bold font-mono">0%</span>
+            </div>
+            <div class="w-full h-2.5 bg-stone-200/60 rounded-full overflow-hidden relative">
+                <div id="achievements-progress-bar" class="h-full bg-gradient-to-r from-romantic-rose to-romantic-gold w-0 transition-all duration-700 ease-out"></div>
+            </div>
+        </div>
+
+        <!-- Filtros de Conquistas (Chips) -->
+        <div class="flex gap-2 mb-4 overflow-x-auto no-scrollbar pb-1 flex-shrink-0">
+            <button onclick="filterAchievements('all')" id="filter-btn-all" class="px-4 py-2 bg-romantic-rose/10 text-romantic-rose rounded-full text-xs font-bold whitespace-nowrap transition-all border border-romantic-rose/20 flex items-center gap-1.5 hover:bg-romantic-rose/15">
+                Todas <span id="filter-count-all" class="text-[10px] opacity-75 font-mono">0</span>
+            </button>
+            <button onclick="filterAchievements('unlocked')" id="filter-btn-unlocked" class="px-4 py-2 bg-stone-100 text-romantic-textMuted rounded-full text-xs font-bold whitespace-nowrap transition-all border border-stone-200/50 flex items-center gap-1.5 hover:bg-stone-200/40">
+                Conquistadas <span id="filter-count-unlocked" class="text-[10px] opacity-75 font-mono">0</span>
+            </button>
+            <button onclick="filterAchievements('locked')" id="filter-btn-locked" class="px-4 py-2 bg-stone-100 text-romantic-textMuted rounded-full text-xs font-bold whitespace-nowrap transition-all border border-stone-200/50 flex items-center gap-1.5 hover:bg-stone-200/40">
+                Bloqueadas <span id="filter-count-locked" class="text-[10px] opacity-75 font-mono">0</span>
+            </button>
+        </div>
+
+        <!-- Lista de Medalhas (Rolável) -->
+        <div id="achievements-list-container" class="flex-1 overflow-y-auto space-y-3 pb-6 pr-1 no-scrollbar">
+            <!-- As conquistas serão geradas dinamicamente via JS -->
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 3: QUIZ DO AMOR (INTERATIVO) ==================== -->
+    <div id="modal-quiz" class="hidden fixed inset-0 z-50 bg-[#faf8f6] overflow-hidden flex flex-col p-6 max-w-md mx-auto h-full">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6 border-b border-stone-200/50 pb-4">
+            <h3 class="text-xl font-bold font-serif text-romantic-rose flex items-center gap-2">
+                <i data-lucide="gamepad-2" class="w-5 h-5 fill-romantic-rose/10 text-romantic-rose"></i> Desafio do Amor
+            </h3>
+            <button onclick="closeModalElement('modal-quiz')" class="p-2 rounded-full hover:bg-stone-100 text-romantic-textMuted hover:text-romantic-textDark transition-all">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Conteúdo Interno do Quiz -->
+        <div id="quiz-container" class="flex-grow flex flex-col justify-between">
+            
+            <!-- Tela Inicial do Quiz -->
+            <div id="quiz-screen-start" class="my-auto text-center space-y-5 px-4">
+                <div class="w-20 h-20 rounded-full bg-romantic-blush flex items-center justify-center mx-auto border border-romantic-rose/20">
+                    <i data-lucide="heart" class="w-10 h-10 text-romantic-rose fill-romantic-rose/20 animate-pulse"></i>
+                </div>
+                <h4 class="text-lg font-bold text-romantic-textDark font-serif">Você está pronta, Duda?</h4>
+                <p class="text-xs text-romantic-textMuted max-w-[280px] mx-auto leading-relaxed">
+                    Responda a 5 perguntas sobre a nossa história. Acerte todas para provar que me conhece de verdade e desbloquear uma medalha secreta!
+                </p>
+                <button onclick="launchQuizQuestions()" class="w-full max-w-[220px] py-4 bg-gradient-to-r from-romantic-rose to-[#cfa39c] text-white font-bold text-xs uppercase tracking-widest rounded-full shadow-md shadow-romantic-rose/15 hover:scale-[1.02] active:scale-[0.98] transition-transform">
+                    Começar Quiz
+                </button>
+            </div>
+
+            <!-- Tela de Perguntas Ativas -->
+            <div id="quiz-screen-question" class="hidden flex-grow flex flex-col justify-between my-auto">
+                <div class="space-y-6 pt-2">
+                    <div class="flex justify-between items-center text-[10px] text-romantic-textMuted font-bold tracking-wider uppercase font-mono">
+                        <span id="quiz-progress-text">Pergunta 1 de 5</span>
+                        <span id="quiz-score-text">Acertos: 0/0</span>
+                    </div>
+                    
+                    <!-- Barra de Progresso do Quiz -->
+                    <div class="w-full h-1.5 bg-stone-200/80 rounded-full overflow-hidden">
+                        <div id="quiz-progress-indicator" class="h-full bg-romantic-rose transition-all duration-300" style="width: 25%"></div>
+                    </div>
+                    
+                    <h5 id="quiz-question-title" class="text-lg font-bold text-romantic-textDark font-serif leading-snug">Qual a data exata do nosso início de namoro?</h5>
+                    
+                    <!-- Opções de Respostas (JS injetará) -->
+                    <div id="quiz-options-wrapper" class="space-y-3">
+                        <!-- Botões de exemplo -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tela de Resultado Final -->
+            <div id="quiz-screen-results" class="hidden my-auto text-center space-y-5 px-4">
+                <div id="quiz-result-emoji" class="text-5xl animate-bounce">🎉</div>
+                <h4 id="quiz-result-title" class="text-xl font-bold text-romantic-textDark font-serif">Gabaritou o amor!</h4>
+                <p id="quiz-result-desc" class="text-xs text-romantic-textMuted max-w-[280px] mx-auto leading-relaxed">
+                    Você acertou todas as perguntas! Mostrou que lembra de cada detalhe nosso. Te amo demais!
+                </p>
+                
+                <!-- Card de Medalha Desbloqueada -->
+                <div id="quiz-card-unlocked" class="hidden bg-amber-50/80 border border-amber-200/60 rounded-2xl p-4 max-w-[280px] mx-auto flex items-center gap-3 shadow-sm">
+                    <div class="text-3xl animate-float">👑</div>
+                    <div class="text-left">
+                        <span class="block text-[9px] text-amber-600 font-extrabold uppercase tracking-widest">Medalha Desbloqueada!</span>
+                        <span class="block text-xs font-bold text-romantic-textDark font-serif">Mestra do Quiz</span>
+                    </div>
+                </div>
+
+                <button onclick="resetQuizState()" class="w-full max-w-[220px] py-4 bg-[#f3ebe6] text-romantic-textDark font-bold text-xs uppercase tracking-widest rounded-full border border-stone-200/60 hover:bg-stone-100 transition-all">
+                    Tentar Novamente
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==================== VISUALIZADOR DE STORIES (TELA CHEIA) ==================== -->
+    <div id="story-visualizer" class="hidden fixed inset-0 z-50 bg-black flex flex-col max-w-md mx-auto h-full select-none">
+        <!-- Indicador de Progresso (Barras Superiores) -->
+        <div id="story-progress-bar-container" class="flex gap-1.5 p-3.5 z-50">
+            <!-- Linhas de progresso geradas dinamicamente -->
+        </div>
+
+        <!-- Header do Story -->
+        <div class="absolute top-9 left-0 right-0 px-4 flex items-center justify-between z-50">
+            <div class="flex items-center gap-2.5">
+                <!-- Avatar Circular -->
+                <div class="w-8 h-8 rounded-full border border-white/20 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=100&auto=format&fit=cover" alt="Perfil" class="w-full h-full object-cover">
+                </div>
+                <!-- Nome do Álbum e Data -->
+                <div class="flex flex-col">
+                    <span id="story-album-name" class="text-xs font-bold text-white font-serif filter drop-shadow">Nossas Memórias</span>
+                    <span class="text-[9px] text-white/60 font-semibold filter drop-shadow mt-0.5">Andrey & Duda</span>
+                </div>
+            </div>
+            <!-- Fechar Stories -->
+            <button onclick="closeStoryVisualizer()" class="text-white hover:opacity-80 p-1.5 rounded-full hover:bg-white/10 transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Conteúdo do Story (Imagem Grande) -->
+        <div class="flex-1 w-full h-full relative flex items-center justify-center">
+            <img id="story-content-img" src="" alt="Story" class="w-full h-full object-cover">
+            
+            <!-- Áreas de Toque Invisíveis para Navegação -->
+            <div onclick="prevStorySlide()" class="absolute left-0 top-0 bottom-0 w-2/5 z-40 cursor-w-resize"></div>
+            <div onclick="nextStorySlide()" class="absolute right-0 top-0 bottom-0 w-3/5 z-40 cursor-e-resize"></div>
+        </div>
+    </div>
+
+
+    <!-- ==================== MODAL 4: DECLARAÇÃO / CARTA DE AMOR ==================== -->
+    <div id="modal-declaration" class="hidden fixed inset-0 z-50 bg-[#faf8f6] overflow-hidden flex flex-col p-6 max-w-md mx-auto h-full">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6 border-b border-stone-200/50 pb-4 flex-shrink-0">
+            <h3 class="text-xl font-bold font-serif text-romantic-rose flex items-center gap-2">
+                <i data-lucide="heart" class="w-5 h-5 fill-romantic-rose/10 text-romantic-rose"></i> Nossa Declaração
+            </h3>
+            <button onclick="closeModalElement('modal-declaration')" class="p-2 rounded-full hover:bg-stone-100 text-romantic-textMuted hover:text-romantic-textDark transition-all">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Conteúdo da Carta (Estilo Papel de Carta de Luxo) -->
+        <div class="flex-grow overflow-y-auto no-scrollbar space-y-6 pb-8 px-1">
+            <div class="paper-texture rounded-3xl p-7 border border-[#e8dfd8] shadow-md relative overflow-hidden">
+                <!-- Efeito de luz de fundo -->
+                <div class="absolute -top-20 -left-20 w-40 h-40 bg-romantic-blush/20 rounded-full blur-3xl"></div>
+                
+                <p class="text-base font-semibold text-romantic-rose font-serif italic mb-4">Duda, meu amor... 🌹</p>
+                
+                <div class="space-y-4 text-romantic-textDark/90 text-sm leading-relaxed font-sans text-justify font-medium">
+                    <p>Cada dia ao seu lado me faz perceber o quanto sou abençoado por ter você na minha vida. O destino, com toda a sua sabedoria e generosidade, cuidou para que as nossas vidas se cruzassem e se unissem da forma mais bonita e verdadeira possível.</p>
+                    
+                    <p>Desde o momento em que decidimos caminhar de mãos dadas, a minha vida ganhou novas cores, significados e uma paz profunda que eu nunca imaginei encontrar. Construir a nossa rotina, compartilhar o mesmo teto, dividir os sorrisos mais bobos e planejar um futuro inteirinho ao seu lado tem sido a jornada mais linda e gratificante que eu poderia sonhar.</p>
+                    
+                    <p>Ter você hoje como minha noiva e saber que muito em breve daremos o passo mais importante das nossas vidas é a minha maior certeza. Você é o meu porto seguro, a minha melhor amiga e o amor da minha vida. Obrigado por ser exatamente quem você é, por cuidar de mim e por me deixar fazer parte da sua história. Te amo infinitamente.</p>
+                </div>
+                
+                <div class="mt-8 pt-5 border-t border-stone-200/60 flex justify-between items-center text-xs text-romantic-textMuted">
+                    <span class="font-serif italic text-romantic-rose font-bold">Com todo o meu amor,</span>
+                    <span class="font-serif font-bold text-sm text-romantic-textDark">Andrey ❤️</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================== LOGICA COMPLETA EM JAVASCRIPT ==================== -->
+    <script>
+        // Inicializar ícones do Lucide carregados via CDN
+        lucide.createIcons();
+
+        // Lógica do Preloader Romântico
+        document.addEventListener('DOMContentLoaded', () => {
+            const preloaderBar = document.getElementById('preloader-bar');
+            if (preloaderBar) {
+                setTimeout(() => {
+                    preloaderBar.style.width = '65%';
+                }, 100);
+            }
+        });
+
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            const preloaderBar = document.getElementById('preloader-bar');
+            
+            if (preloaderBar) {
+                preloaderBar.style.width = '100%';
+            }
+            
+            setTimeout(() => {
+                if (preloader) {
+                    preloader.classList.add('opacity-0');
+                    setTimeout(() => {
+                        preloader.remove();
+                    }, 700);
+                }
+            }, 2100);
+        });
+
+        // -------------------------------------------------------------
+        // CONFIGURAÇÕES GERAIS E DADOS (ATUALIZADOS COM DADOS DO USUÁRIO)
+        // -------------------------------------------------------------
+        
+        // Data e hora de início do namoro oficial: 11/07/2020 às 20h00
+        // FORMATO: Ano, Mês (0-indexed: 6 = Julho), Dia, Hora, Minuto, Segundo
+        const relationshipStartDate = new Date(2020, 6, 11, 20, 0, 0); 
+        
+        // Galerias de Fotos para os Stories (Imagens de exemplo estáveis de alta qualidade)
+        const albumGalleries = [
+            // Álbum 0: Fases (38 mídias convertidas)
+            [
+                "fases_converted/fase_22.webp",
+                "fases_converted/fase_01.webp",
+                "fases_converted/fase_02.webp",
+                "fases_converted/fase_03.webp",
+                "fases_converted/fase_04.webp",
+                "fases_converted/fase_05.webp",
+                "fases_converted/fase_06.webp",
+                "fases_converted/fase_07.webp",
+                "fases_converted/fase_08.webp",
+                "fases_converted/fase_09.webp",
+                "fases_converted/fase_10.webp",
+                "fases_converted/fase_11.webp",
+                "fases_converted/fase_12.webp",
+                "fases_converted/fase_13.webp",
+                "fases_converted/fase_14.webp",
+                "fases_converted/fase_15.webp",
+                "fases_converted/fase_16.webp",
+                "fases_converted/fase_17.webp",
+                "fases_converted/fase_18.webp",
+                "fases_converted/fase_19.webp",
+                "fases_converted/fase_20.webp",
+                "fases_converted/fase_21.webp",
+                "fases_converted/fase_23.webp",
+                "fases_converted/fase_24.webp",
+                "fases_converted/fase_25.webp",
+                "fases_converted/fase_26.webp",
+                "fases_converted/fase_27.webp",
+                "fases_converted/fase_28.webp",
+                "fases_converted/fase_29.webp",
+                "fases_converted/fase_30.webp",
+                "fases_converted/fase_31.gif",
+                "fases_converted/fase_32.gif",
+                "fases_converted/fase_33.gif",
+                "fases_converted/fase_34.gif",
+                "fases_converted/fase_35.gif",
+                "fases_converted/fase_36.gif",
+                "fases_converted/fase_37.webp",
+                "fases_converted/fase_38.webp"
+            ],
+        ];
+
+        // Títulos dos álbuns
+        const albumTitles = [
+            "Fases"
+        ];
+
+        // Perguntas do Quiz atualizadas com a história real do casal
+        const quizDataset = [
+            {
+                question: "Qual foi a data exata do nosso início de namoro?",
+                options: ["11 de Julho de 2020", "12 de Julho de 2020", "11 de Julho de 2016", "11 de Junho de 2020"],
+                correctIndex: 0
+            },
+            {
+                question: "Em qual ano nos conhecemos na escola?",
+                options: ["2014", "2015", "2016", "2017"],
+                correctIndex: 2
+            },
+            {
+                question: "Onde foi o nosso primeiro beijo em 11/07/2016?",
+                options: ["Na escadaria do bairro", "Na ruazinha na saída da escola", "Na sala de aula", "No pátio do colégio"],
+                correctIndex: 1
+            },
+            {
+                question: "Onde costumávamos nos encontrar no caminho para casa logo após o primeiro beijo em 2016?",
+                options: ["Na escadaria", "Na praça central", "Na parada de ônibus", "Na sorveteria do bairro"],
+                correctIndex: 0
+            },
+            {
+                question: "Quem é mais provável de dormir primeiro no meio de um filme ou série no sofá?",
+                options: ["Andrey", "Duda", "Os dois dormem juntos", "Nenhum de nós, assistimos até o fim"],
+                correctIndex: 1
+            }
+        ];
+
+        // -------------------------------------------------------------
+        // EFEITO VISUAL: PARTÍCULAS FLUTUANTES SVG (TELA DE ABERTURA)
+        // -------------------------------------------------------------
+        const heartContainer = document.getElementById('heart-container');
+        
+        function spawnFloatingHeart() {
+            const container = document.getElementById('heart-container');
+            if (!container) return;
+            
+            const particle = document.createElement('div');
+            particle.classList.add('floating-particle');
+            
+            const isSparkle = Math.random() > 0.5;
+            const size = Math.random() * 16 + 12; // 12px a 28px
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = Math.random() * 100 + '%';
+            
+            if (isSparkle) {
+                particle.innerHTML = `<svg class="w-full h-full text-romantic-gold/60" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z"/></svg>`;
+            } else {
+                particle.innerHTML = `<svg class="w-full h-full text-romantic-rose/60" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
+            }
+            
+            const speed = Math.random() * 5 + 6; // 6s a 11s
+            particle.style.animationDuration = speed + 's';
+            particle.style.opacity = Math.random() * 0.4 + 0.3;
+            
+            container.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, speed * 1000);
+        }
+
+        let heartSpawnerInterval = setInterval(spawnFloatingHeart, 450);
+
+        // -------------------------------------------------------------
+        // NAVEGAÇÃO DE PÁGINAS PRINCIPAL
+        // -------------------------------------------------------------
+        function startExperience() {
+            clearInterval(heartSpawnerInterval);
+            
+            const screenIntro = document.getElementById('screen-intro');
+            const screenMain = document.getElementById('screen-main');
+            
+            screenIntro.classList.add('opacity-0');
+            setTimeout(() => {
+                screenIntro.classList.add('hidden');
+                screenMain.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    screenMain.classList.remove('opacity-0');
+                }, 50);
+
+                initializeCounters();
+                
+                // Dar play na música nativa ao entrar na tela principal
+                playAudioTrack();
+            }, 600);
+        }
+
+        function startWithModal(modalId) {
+            startExperience();
+            setTimeout(() => {
+                if (modalId === 'modal-achievements') {
+                    tryOpenAchievements();
+                } else {
+                    openModalElement(modalId);
+                }
+            }, 650);
+        }
+
+        function exitExperience() {
+            const screenIntro = document.getElementById('screen-intro');
+            const screenMain = document.getElementById('screen-main');
+            
+            screenMain.classList.add('opacity-0');
+            setTimeout(() => {
+                screenMain.classList.add('hidden');
+                screenIntro.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    screenIntro.classList.remove('opacity-0');
+                }, 50);
+
+                heartSpawnerInterval = setInterval(spawnFloatingHeart, 450);
+                pauseAudioTrack();
+            }, 500);
+        }
+
+        // -------------------------------------------------------------
+        // GERENCIAMENTO DE MODAIS
+        // -------------------------------------------------------------
+        function openModalElement(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            modal.classList.add('fade-enter');
+            modal.offsetHeight;
+            modal.classList.add('fade-enter-active');
+            modal.classList.remove('fade-enter');
+        }
+
+        // Função onload chamada pelo body
+        function initializeOnLoad() {
+            // Resetar o estado do quiz e das conquistas interativas ao recarregar a página
+            localStorage.removeItem('isAchievementsUnlocked');
+            localStorage.removeItem('openedAlbums');
+            achievementsData.forEach(ach => {
+                if (ach.id === 9 || ach.id === 10 || ach.id === 11) {
+                    localStorage.removeItem(`achievement_${ach.id}_unlocked`);
+                    ach.unlocked = false;
+                }
+            });
+            isAchievementsUnlocked = false;
+            openedAlbums = [];
+            
+            loadAchievementsState();
+            updateMainUIProgress();
+        }
+
+        function closeModalElement(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('opacity-0', 'fade-enter-active');
+            }, 300);
+        }
+
+        // -------------------------------------------------------------
+        // CONTADOR DE TEMPO JUNTOS (PROGRESSIVO 1S)
+        // -------------------------------------------------------------
+        let clockTimerInterval = null;
+
+        function initializeCounters() {
+            if (clockTimerInterval) clearInterval(clockTimerInterval);
+
+            function refreshClock() {
+                const now = new Date();
+                let diffInMs = now - relationshipStartDate;
+
+                if (diffInMs < 0) diffInMs = 0; 
+
+                let years = now.getFullYear() - relationshipStartDate.getFullYear();
+                let months = now.getMonth() - relationshipStartDate.getMonth();
+                let days = now.getDate() - relationshipStartDate.getDate();
+
+                if (days < 0) {
+                    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                    days += prevMonth.getDate();
+                    months--;
+                }
+
+                if (months < 0) {
+                    months += 12;
+                    years--;
+                }
+
+                const hours = Math.floor((diffInMs / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((diffInMs / (1000 * 60)) % 60);
+                const seconds = Math.floor((diffInMs / 1000) % 60);
+
+                document.getElementById('counter-years').innerText = years;
+                document.getElementById('counter-months').innerText = months;
+                document.getElementById('counter-days').innerText = days;
+                document.getElementById('counter-hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('counter-minutes').innerText = minutes.toString().padStart(2, '0');
+                document.getElementById('counter-seconds').innerText = seconds.toString().padStart(2, '0');
+            }
+
+            refreshClock();
+            clockTimerInterval = setInterval(refreshClock, 1000);
+        }
+
+        // -------------------------------------------------------------
+        // CONTROLE DO TOCADOR DE ÁUDIO NATIVO (HTML5)
+        // -------------------------------------------------------------
+        const audio = document.getElementById('love-audio');
+        let isAudioTrackPlaying = false;
+        let audioProgressTimer = null;
+
+        // Fallback inteligente: se o arquivo local 'musica.mp3' não existir na pasta,
+        // carrega automaticamente uma linda sonata de piano online como fallback.
+        audio.addEventListener('error', function() {
+            console.log("Arquivo local 'musica.mp3' não encontrado. Carregando música online de demonstração...");
+            if (audio.src.indexOf('musica.mp3') !== -1) {
+                audio.src = "https://upload.wikimedia.org/wikipedia/commons/e/ec/Ludwig_van_Beethoven_-_Moonlight_Sonata_-_1st_movement.mp3";
+                audio.load();
+                if (isAudioTrackPlaying) {
+                    audio.play().catch(e => console.log("Erro ao rodar áudio online:", e));
+                }
+            }
+        });
+
+        function toggleTrackPlayback() {
+            if (isAudioTrackPlaying) {
+                pauseAudioTrack();
+            } else {
+                playAudioTrack();
+            }
+        }
+
+        function playAudioTrack() {
+            audio.play().then(() => {
+                isAudioTrackPlaying = true;
+                updateTrackUI();
+                startTrackProgressTracker();
+                // Desbloqueia a conquista "Fã de Carteirinha" (ID 9)
+                if (typeof unlockAchievement === 'function') {
+                    unlockAchievement(9);
+                }
+            }).catch(e => {
+                console.log("Erro de reprodução de som:", e);
+            });
+        }
+
+        function pauseAudioTrack() {
+            audio.pause();
+            isAudioTrackPlaying = false;
+            updateTrackUI();
+            clearInterval(audioProgressTimer);
+        }
+
+        function restartTrack() {
+            audio.currentTime = 0;
+            playAudioTrack();
+        }
+
+        function updateTrackUI() {
+            const playIcon = document.getElementById('btn-play-icon');
+            const vinylDisk = document.getElementById('vinyl-disk');
+            const vinylNeedle = document.getElementById('vinyl-needle');
+            
+            if (isAudioTrackPlaying) {
+                playIcon.setAttribute('data-lucide', 'pause');
+                if (vinylDisk) {
+                    vinylDisk.classList.remove('rotate-vinyl-paused');
+                }
+                if (vinylNeedle) {
+                    vinylNeedle.style.transform = 'rotate(12deg)';
+                }
+            } else {
+                playIcon.setAttribute('data-lucide', 'play');
+                if (vinylDisk) {
+                    vinylDisk.classList.add('rotate-vinyl-paused');
+                }
+                if (vinylNeedle) {
+                    vinylNeedle.style.transform = 'rotate(-12deg)';
+                }
+            }
+            lucide.createIcons();
+        }
+
+        function startTrackProgressTracker() {
+            if (audioProgressTimer) clearInterval(audioProgressTimer);
+
+            audioProgressTimer = setInterval(() => {
+                if (audio.duration) {
+                    const currentTime = audio.currentTime;
+                    const duration = audio.duration;
+                    const percentage = (currentTime / duration) * 100;
+                    
+                    document.getElementById('audio-timeline-fill').style.width = `${percentage}%`;
+                    document.getElementById('audio-timeline-handle').style.left = `${percentage}%`;
+                    document.getElementById('audio-time-current').innerText = formatAudioTime(currentTime);
+                    document.getElementById('audio-time-total').innerText = formatAudioTime(duration);
+                }
+            }, 300);
+        }
+
+        function formatAudioTime(seconds) {
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60);
+            return `${m}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function seekTrack(event) {
+            if (!audio.duration) return;
+            const timeline = event.currentTarget;
+            const bounds = timeline.getBoundingClientRect();
+            const clickPositionX = event.clientX - bounds.left;
+            const targetPercentage = clickPositionX / bounds.width;
+            
+            audio.currentTime = audio.duration * targetPercentage;
+            
+            document.getElementById('audio-timeline-fill').style.width = `${targetPercentage * 100}%`;
+            document.getElementById('audio-timeline-handle').style.left = `${targetPercentage * 100}%`;
+            document.getElementById('audio-time-current').innerText = formatAudioTime(audio.currentTime);
+        }
+
+        // -------------------------------------------------------------
+        // SISTEMA DE STORIES (ESTILO INSTAGRAM/SPOTIFY STORIES)
+        // -------------------------------------------------------------
+        let activeAlbumIdx = 0;
+        let activeStorySlideIdx = 0;
+        let storySlideTimeout = null;
+        const slideTimeDuration = 4000; 
+
+        function openStoryAlbum(albumIdx) {
+            activeAlbumIdx = albumIdx;
+            activeStorySlideIdx = 0;
+            
+            document.getElementById('story-album-name').innerText = albumTitles[albumIdx];
+            document.getElementById('story-visualizer').classList.remove('hidden');
+            
+            showStorySlide(0);
+
+            // Rastreia álbuns visualizados para a conquista de ID 10
+            if (typeof openedAlbums !== 'undefined' && !openedAlbums.includes(albumIdx)) {
+                openedAlbums.push(albumIdx);
+                localStorage.setItem('openedAlbums', JSON.stringify(openedAlbums));
+                if (openedAlbums.length === albumTitles.length) {
+                    if (typeof unlockAchievement === 'function') {
+                        unlockAchievement(10);
+                    }
+                }
+            }
+        }
+
+        function showStorySlide(slideIdx) {
+            activeStorySlideIdx = slideIdx;
+            const images = albumGalleries[activeAlbumIdx];
+
+            if (slideIdx >= images.length) {
+                closeStoryVisualizer();
+                return;
+            }
+            if (slideIdx < 0) {
+                activeStorySlideIdx = 0;
+                return;
+            }
+
+            document.getElementById('story-content-img').src = images[slideIdx];
+
+            const barContainer = document.getElementById('story-progress-bar-container');
+            barContainer.innerHTML = '';
+
+            for (let i = 0; i < images.length; i++) {
+                const wrapper = document.createElement('div');
+                wrapper.className = "flex-1 h-1 bg-white/20 rounded-full overflow-hidden";
+                
+                const fill = document.createElement('div');
+                fill.id = `story-progress-bar-fill-${i}`;
+                fill.className = "h-full bg-white transition-all ease-linear";
+                
+                if (i < slideIdx) {
+                    fill.style.width = '100%';
+                } else {
+                    fill.style.width = '0%';
+                }
+                
+                wrapper.appendChild(fill);
+                barContainer.appendChild(wrapper);
+            }
+
+            setTimeout(() => {
+                const currentFill = document.getElementById(`story-progress-bar-fill-${slideIdx}`);
+                if (currentFill) {
+                    currentFill.style.transitionDuration = `${slideTimeDuration}ms`;
+                    currentFill.style.width = '100%';
+                }
+            }, 50);
+
+            clearTimeout(storySlideTimeout);
+            storySlideTimeout = setTimeout(() => {
+                nextStorySlide();
+            }, slideTimeDuration);
+        }
+
+        function nextStorySlide() {
+            const images = albumGalleries[activeAlbumIdx];
+            if (activeStorySlideIdx + 1 < images.length) {
+                showStorySlide(activeStorySlideIdx + 1);
+            } else {
+                closeStoryVisualizer();
+            }
+        }
+
+        function prevStorySlide() {
+            if (activeStorySlideIdx - 1 >= 0) {
+                showStorySlide(activeStorySlideIdx - 1);
+            } else {
+                showStorySlide(0);
+            }
+        }
+
+        function closeStoryVisualizer() {
+            clearTimeout(storySlideTimeout);
+            document.getElementById('story-visualizer').classList.add('hidden');
+        }
+
+        // -------------------------------------------------------------
+        // QUIZ DO CASAL (MÚLTIPLA ESCOLA E LOGICA DE MEDALHA SECRETA)
+        // -------------------------------------------------------------
+        let currentQuizIdx = 0;
+        let quizScore = 0;
+        let completedQuizWithPerfectScore = false;
+
+        function launchQuizQuestions() {
+            document.getElementById('quiz-screen-start').classList.add('hidden');
+            document.getElementById('quiz-screen-question').classList.remove('hidden');
+            currentQuizIdx = 0;
+            quizScore = 0;
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            const data = quizDataset[currentQuizIdx];
+            
+            document.getElementById('quiz-progress-text').innerText = `Pergunta ${currentQuizIdx + 1} de ${quizDataset.length}`;
+            document.getElementById('quiz-score-text').innerText = `Acertos: ${quizScore}/${currentQuizIdx}`;
+            
+            const progressPercentage = ((currentQuizIdx + 1) / quizDataset.length) * 100;
+            document.getElementById('quiz-progress-indicator').style.width = `${progressPercentage}%`;
+            
+            document.getElementById('quiz-question-title').innerText = data.question;
+
+            const optionsWrapper = document.getElementById('quiz-options-wrapper');
+            optionsWrapper.innerHTML = '';
+
+            data.options.forEach((optText, optIdx) => {
+                const optButton = document.createElement('button');
+                optButton.className = "w-full py-4 px-5 bg-white border border-stone-200/50 hover:border-romantic-rose/40 hover:bg-stone-50 active:scale-[0.99] text-left rounded-2xl text-xs font-semibold text-romantic-textDark transition-all duration-200 shadow-sm";
+                optButton.innerText = optText;
+                optButton.onclick = () => selectQuizAnswer(optIdx, optButton);
+                optionsWrapper.appendChild(optButton);
+            });
+        }
+
+        function selectQuizAnswer(selectedIndex, buttonElement) {
+            const data = quizDataset[currentQuizIdx];
+            const isCorrect = selectedIndex === data.correctIndex;
+            
+            const buttons = document.getElementById('quiz-options-wrapper').querySelectorAll('button');
+            buttons.forEach(b => b.disabled = true);
+
+            if (isCorrect) {
+                buttonElement.classList.remove('bg-white', 'border-stone-200/50');
+                buttonElement.classList.add('bg-emerald-50', 'border-emerald-300', 'text-emerald-700');
+                quizScore++;
+            } else {
+                buttonElement.classList.remove('bg-white', 'border-stone-200/50');
+                buttonElement.classList.add('bg-rose-50', 'border-rose-300', 'text-rose-700');
+                
+                buttons[data.correctIndex].classList.remove('bg-white', 'border-stone-200/50');
+                buttons[data.correctIndex].classList.add('bg-emerald-50', 'border-emerald-300', 'text-emerald-700');
+            }
+
+            setTimeout(() => {
+                if (currentQuizIdx + 1 < quizDataset.length) {
+                    currentQuizIdx++;
+                    renderQuizQuestion();
+                } else {
+                    displayQuizResults();
+                }
+            }, 1500);
+        }
+
+        function displayQuizResults() {
+            document.getElementById('quiz-screen-question').classList.add('hidden');
+            document.getElementById('quiz-screen-results').classList.remove('hidden');
+
+            const emojiEl = document.getElementById('quiz-result-emoji');
+            const titleEl = document.getElementById('quiz-result-title');
+            const descEl = document.getElementById('quiz-result-desc');
+            const cardEl = document.getElementById('quiz-card-unlocked');
+
+            if (quizScore === quizDataset.length) {
+                emojiEl.innerText = "👑";
+                titleEl.innerText = "Gabaritou o amor!";
+                descEl.innerText = `Você acertou ${quizScore} de ${quizDataset.length}! Mostrou que lembra de cada detalhe nosso. Te amo demais!`;
+                cardEl.classList.remove('hidden');
+                
+                // Salva estado desbloqueado no localStorage e desbloqueia a medalha
+                isAchievementsUnlocked = true;
+                localStorage.setItem('isAchievementsUnlocked', 'true');
+                unlockAchievement(11); // ID 11 é a "Mestra do Quiz"
+            } else if (quizScore >= 2) {
+                emojiEl.innerText = "💖";
+                titleEl.innerText = "Muito bom, meu amor!";
+                descEl.innerText = `Você acertou ${quizScore} de ${quizDataset.length}. Foi uma ótima pontuação! Mas eu sei que você consegue gabaritar se tentar de novo.`;
+                cardEl.classList.add('hidden');
+            } else {
+                emojiEl.innerText = "😅";
+                titleEl.innerText = "Vale a pena tentar de novo!";
+                descEl.innerText = `Você acertou ${quizScore} de ${quizDataset.length}. Que tal jogarmos juntos para relembrar esses momentos lindos?`;
+                cardEl.classList.add('hidden');
+            }
+        }
+
+        function resetQuizState() {
+            document.getElementById('quiz-screen-results').classList.add('hidden');
+            document.getElementById('quiz-screen-start').classList.remove('hidden');
+        }
+
+        // -------------------------------------------------------------
+        // LOGICA DE CONQUISTAS DINÂMICAS E INTERATIVAS
+        // -------------------------------------------------------------
+        
+        let openedAlbums = [];
+        let activeRevealed = []; // Rastreia quais conquistas estão reveladas
+        let isAchievementsUnlocked = false; // Sempre trancado ao iniciar
+        
+        const achievementsData = [
+            { id: 1, title: "Primeiro Olhar", date: "2016", desc: "Nos conhecemos nos corredores da escola.", icon: "eye", hint: "Desbloqueado por padrão", unlocked: true },
+            { id: 2, title: "Primeiro Beijo", date: "11/07/2016", desc: "Na ruazinha da escola, onde tudo começou.", icon: "heart-handshake", hint: "Desbloqueado por padrão", unlocked: true },
+            { id: 3, title: "Ponto de Encontro", date: "2016", desc: "Nossos encontros na escadaria do bairro na volta para casa.", icon: "map-pin", hint: "Desbloqueado por padrão", unlocked: true },
+            { id: 4, title: "O Reencontro", date: "2020", desc: "O destino nos unindo novamente depois de alguns anos.", icon: "sparkles", hint: "Desbloqueado por padrão", unlocked: true },
+            { id: 5, title: "Início do Namoro", date: "11/07/2020", desc: "O pedido oficial de namoro que uniu nosso destino de vez.", icon: "heart", hint: "Desbloqueado por padrão", unlocked: true },
+            { id: 6, title: "Lar Doce Lar", date: "2021", desc: "Começamos a morar juntos e a construir nosso lindo rotina.", icon: "home", hint: "Desbloqueado por padrão", unlocked: true },
+            { id: 8, title: "Pedido de Noivado", date: "11/07/2024", desc: "O passo mais maduro e lindo rumo ao nosso altar.", icon: "gem", hint: "Desbloqueado por padrão", unlocked: true },
+            { id: 9, title: "Fã de Carteirinha", date: "Interativo", desc: "Deu play na nossa música tema para aquecer o coração.", icon: "music", hint: "Dê play na música tema para desbloquear 🔒", unlocked: false },
+            { id: 10, title: "Exploradora de Memórias", date: "Interativo", desc: "Visualizou o nosso álbum de fotos e recordações.", icon: "camera", hint: "Abra o álbum de fotos para desbloquear 🔒", unlocked: false },
+            { id: 11, title: "Mestra do Quiz", date: "Interativo", desc: "Gabaritou com louvor o Quiz do Nosso Amor. Você me conhece perfeitamente!", icon: "crown", hint: "Gabarite o Quiz do Nosso Amor para desbloquear 🔒", unlocked: false }
+        ];
+
+        let currentFilter = 'all';
+
+        function loadAchievementsState() {
+            achievementsData.forEach(ach => {
+                if (!ach.unlocked) {
+                    const saved = localStorage.getItem(`achievement_${ach.id}_unlocked`);
+                    if (saved === 'true') {
+                        ach.unlocked = true;
+                    }
+                }
+            });
+        }
+
+        function toggleAchievementFlip(id, cardElement) {
+            const isFlipped = cardElement.classList.contains('flipped');
+            
+            // Desvira todas as outras cartas
+            const allCards = document.querySelectorAll('.flip-card');
+            allCards.forEach(c => {
+                c.classList.remove('flipped');
+            });
+            
+            if (!isFlipped) {
+                cardElement.classList.add('flipped');
+                activeRevealed = [id];
+            } else {
+                activeRevealed = [];
+            }
+        }
+
+        function unlockAchievement(id) {
+            const ach = achievementsData.find(a => a.id === id);
+            if (ach && !ach.unlocked) {
+                ach.unlocked = true;
+                localStorage.setItem(`achievement_${id}_unlocked`, 'true');
+                renderAchievements();
+                updateMainUIProgress();
+                showToast(`Conquista Desbloqueada: ${ach.title}! ${ach.emoji}✨`, 'sparkles');
+                triggerConfetti();
+            }
+        }
+
+        function updateMainUIProgress() {
+            const total = achievementsData.length;
+            const unlocked = achievementsData.filter(a => a.unlocked).length;
+            
+            const btnAch = document.getElementById('btn-achievements');
+            const iconContainer = document.getElementById('achievements-icon-container');
+            const icon = document.getElementById('achievements-icon');
+            const title = document.getElementById('achievements-title-main');
+            const desc = document.getElementById('achievements-desc-main');
+            const ratioEl = document.getElementById('badges-unlocked-ratio');
+            const footerBtn = document.getElementById('footer-btn-achievements');
+            const footerIcon = document.getElementById('footer-achievements-icon');
+
+            if (isAchievementsUnlocked) {
+                // Modo DESBLOQUEADO
+                if (btnAch) btnAch.classList.remove('opacity-60');
+                if (iconContainer) iconContainer.className = "w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-300 to-amber-50 flex items-center justify-center shadow-md shadow-amber-500/10 transition-all";
+                if (icon) {
+                    icon.setAttribute('data-lucide', 'trophy');
+                    icon.className = "w-5.5 h-5.5 text-white";
+                }
+                if (title) {
+                    title.classList.remove('text-romantic-textMuted/50');
+                    title.classList.add('text-romantic-textDark');
+                }
+                if (desc) desc.innerText = "Colecione as medalhas da nossa história.";
+                if (ratioEl) {
+                    ratioEl.innerText = `${unlocked}/${total}`;
+                    ratioEl.className = "text-xs font-bold text-romantic-rose font-mono";
+                }
+                if (footerBtn) footerBtn.classList.remove('opacity-40');
+                if (footerIcon) {
+                    footerIcon.setAttribute('data-lucide', 'trophy');
+                    footerIcon.className = "w-4 h-4";
+                }
+            } else {
+                // Modo BLOQUEADO
+                if (btnAch) btnAch.classList.add('opacity-60');
+                if (iconContainer) iconContainer.className = "w-12 h-12 rounded-2xl bg-stone-200/80 flex items-center justify-center shadow-sm transition-all";
+                if (icon) {
+                    icon.setAttribute('data-lucide', 'lock');
+                    icon.className = "w-5.5 h-5.5 text-romantic-textMuted";
+                }
+                if (title) {
+                    title.classList.remove('text-romantic-textDark');
+                    title.classList.add('text-romantic-textMuted/50');
+                }
+                if (desc) desc.innerText = "Desbloqueie gabaritando o Quiz! 🔒";
+                if (ratioEl) {
+                    ratioEl.innerText = "Bloqueado";
+                    ratioEl.className = "text-xs font-bold text-romantic-textMuted font-mono";
+                }
+                if (footerBtn) footerBtn.classList.add('opacity-40');
+                if (footerIcon) {
+                    footerIcon.setAttribute('data-lucide', 'lock');
+                    footerIcon.className = "w-4 h-4";
+                }
+            }
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            
+            const percent = Math.round((unlocked / total) * 100);
+            
+            const progressBar = document.getElementById('achievements-progress-bar');
+            if (progressBar) progressBar.style.width = `${percent}%`;
+            
+            const percentText = document.getElementById('achievements-percent');
+            if (percentText) percentText.innerText = `${percent}%`;
+            
+            const subtitle = document.getElementById('achievements-subtitle');
+            if (subtitle) subtitle.innerText = `Progresso: ${unlocked} de ${total} medalhas obtidas`;
+            
+            const countAll = document.getElementById('filter-count-all');
+            const countUnlocked = document.getElementById('filter-count-unlocked');
+            const countLocked = document.getElementById('filter-count-locked');
+            
+            if (countAll) countAll.innerText = total;
+            if (countUnlocked) countUnlocked.innerText = unlocked;
+            if (countLocked) countLocked.innerText = total - unlocked;
+        }
+
+        function renderAchievements() {
+            const container = document.getElementById('achievements-list-container');
+            if (!container) return;
+            container.innerHTML = '';
+            
+            const filtered = achievementsData.filter(ach => {
+                if (currentFilter === 'unlocked') return ach.unlocked;
+                if (currentFilter === 'locked') return !ach.unlocked;
+                return true;
+            });
+            
+            filtered.forEach((ach, index) => {
+                const card = document.createElement('div');
+                card.style.animationDelay = `${index * 40}ms`;
+                
+                if (ach.unlocked) {
+                    const isFlipped = activeRevealed.includes(ach.id);
+                    card.className = `flip-card achievement-card-anim group ${isFlipped ? 'flipped' : ''}`;
+                    card.onclick = () => toggleAchievementFlip(ach.id, card);
+                    card.innerHTML = `
+                        <div class="flip-card-inner">
+                            <!-- Frente do Card -->
+                            <div class="flip-card-front flex items-center gap-4 bg-white/95 backdrop-blur-sm p-4 border border-stone-200/50 rounded-2xl shadow-[0_4px_15px_rgba(115,100,95,0.03)] hover:shadow-[0_6px_20px_rgba(212,163,157,0.08)] hover:bg-[#fffdfc] transition-all duration-300 cursor-pointer">
+                                <div class="w-11 h-11 border border-romantic-rose/20 rounded-xl flex items-center justify-center text-romantic-rose flex-shrink-0 bg-romantic-blush/20 transition-transform duration-300 group-hover:scale-105">
+                                    <i data-lucide="${ach.icon}" class="w-5 h-5 text-romantic-rose"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <h5 class="text-sm font-semibold text-romantic-textDark font-serif tracking-wide">${ach.title}</h5>
+                                    <p class="text-[9px] text-romantic-rose uppercase tracking-widest font-bold mt-1.5 flex items-center gap-1">Revelar lembrança <span class="transition-transform duration-300 group-hover:translate-x-1">→</span></p>
+                                </div>
+                            </div>
+                            <!-- Verso do Card -->
+                            <div class="flip-card-back flex items-center gap-4 bg-[#fcfbf9] p-4 border border-stone-200/50 rounded-2xl shadow-[0_4px_15px_rgba(115,100,95,0.03)]">
+                                <div class="flex-grow">
+                                    <div class="flex justify-between items-center border-b border-stone-200/40 pb-1">
+                                        <h5 class="text-[10px] font-bold text-romantic-rose uppercase tracking-widest font-sans">${ach.title}</h5>
+                                        <span class="text-[9px] font-bold bg-romantic-blush/40 text-romantic-rose border border-romantic-rose/10 px-2 py-0.5 rounded-full font-mono">${ach.date}</span>
+                                    </div>
+                                    <p class="text-[11px] text-romantic-textDark font-medium mt-1.5 leading-relaxed text-justify">${ach.desc}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    card.className = "achievement-card-anim flex items-center gap-4 bg-stone-50/50 rounded-2xl p-4 border border-stone-200/20 shadow-none opacity-50 h-[90px]";
+                    card.innerHTML = `
+                        <div class="w-11 h-11 border border-stone-300/40 rounded-xl flex items-center justify-center text-stone-400 flex-shrink-0 bg-stone-100/30">
+                            <i data-lucide="lock" class="w-5 h-5 text-stone-400"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <h5 class="text-sm font-semibold text-romantic-textMuted/60 font-serif tracking-wide">${ach.title}</h5>
+                                <span class="text-[8px] font-bold bg-stone-100 text-stone-400/80 border border-stone-200/20 px-2 py-0.5 rounded-full uppercase tracking-wider">Bloqueado</span>
+                            </div>
+                            <p class="text-[10px] text-romantic-textMuted/60 mt-1.5 font-medium">${ach.hint}</p>
+                        </div>
+                    `;
+                }
+                container.appendChild(card);
+            });
+
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function filterAchievements(filterType) {
+            currentFilter = filterType;
+            
+            const btnAll = document.getElementById('filter-btn-all');
+            const btnUnlocked = document.getElementById('filter-btn-unlocked');
+            const btnLocked = document.getElementById('filter-btn-locked');
+            
+            [btnAll, btnUnlocked, btnLocked].forEach(btn => {
+                if (btn) {
+                    btn.className = "px-4 py-2 bg-stone-100 text-romantic-textMuted rounded-full text-xs font-bold whitespace-nowrap transition-all border border-stone-200/50 flex items-center gap-1.5 hover:bg-stone-200/40";
+                }
+            });
+            
+            const activeBtn = document.getElementById(`filter-btn-${filterType}`);
+            if (activeBtn) {
+                activeBtn.className = "px-4 py-2 bg-romantic-rose/10 text-romantic-rose rounded-full text-xs font-bold whitespace-nowrap transition-all border border-romantic-rose/20 flex items-center gap-1.5 hover:bg-romantic-rose/15";
+            }
+            
+            renderAchievements();
+        }
+
+        function tryOpenAchievements() {
+            if (isAchievementsUnlocked) {
+                openModalElement('modal-achievements');
+                renderAchievements();
+                updateMainUIProgress();
+            } else {
+                showToast("Conquistas trancadas! Gabarite o Quiz do Amor para desbloquear! 🔒❤️");
+            }
+        }
+
+        // -------------------------------------------------------------
+        // ANIMAÇÃO DE CONFETES NO CANVAS
+        // -------------------------------------------------------------
+        function triggerConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            let particles = [];
+            const colors = ['#ec4899', '#f43f5e', '#1ed760', '#f59e0b', '#06b6d4', '#a855f7'];
+            
+            for (let i = 0; i < 120; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    r: Math.random() * 5 + 3,
+                    d: Math.random() * canvas.height,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    tilt: Math.random() * 10 - 5,
+                    tiltAngleIncremental: Math.random() * 0.08 + 0.03,
+                    tiltAngle: 0
+                });
+            }
+            
+            let animationFrame;
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let active = false;
+                
+                particles.forEach((p, idx) => {
+                    p.tiltAngle += p.tiltAngleIncremental;
+                    p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2.5;
+                    p.x += Math.sin(p.tiltAngle);
+                    p.tilt = Math.sin(p.tiltAngle - idx/3) * 12;
+                    
+                    if (p.y < canvas.height) {
+                        active = true;
+                    }
+                    
+                    ctx.beginPath();
+                    ctx.lineWidth = p.r;
+                    ctx.strokeStyle = p.color;
+                    ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+                    ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+                    ctx.stroke();
+                });
+                
+                if (active) {
+                    animationFrame = requestAnimationFrame(draw);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            draw();
+        }
+
+        // -------------------------------------------------------------
+        // EXIBIÇÃO DE ALERTA RÁPIDO (TOAST)
+        // -------------------------------------------------------------
+        function showToast(message, iconName = 'lock') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = "bg-stone-900/95 text-xs font-semibold text-white py-3.5 px-5 rounded-2xl shadow-2xl flex items-center gap-3 transform -translate-y-4 opacity-0 transition-all duration-300 border border-stone-800 pointer-events-auto cursor-pointer";
+            toast.innerHTML = `<i data-lucide="${iconName}" class="w-4.5 h-4.5 text-romantic-rose fill-romantic-rose/10 flex-shrink-0"></i> <span class="flex-1">${message}</span>`;
+            toast.onclick = () => {
+                toast.classList.add('-translate-y-4', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            };
+            container.appendChild(toast);
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                toast.classList.remove('-translate-y-4', 'opacity-0');
+            }, 50);
+            
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.classList.add('-translate-y-4', 'opacity-0');
+                    setTimeout(() => {
+                        if (toast.parentNode) toast.remove();
+                    }, 300);
+                }
+            }, 4000);
+        }
+
+        // Inicializar conquistas ao carregar
+        loadAchievementsState();
+        updateMainUIProgress();
+
+    </script>
+</body>
+</html>
